@@ -14,6 +14,6 @@
   ansible.builtin.systemd:
     name:    docker-{{ docker_container_name }}
     enabled: true
-    state:   enabled
+    state:   started
 
 ...
