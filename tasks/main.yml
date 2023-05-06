@@ -10,14 +10,10 @@
   ansible.builtin.systemd:
     daemon_reload: yes
 
-- name: Ensure docker container serive enabled
+- name: Ensure docker container serive enabled and started
   ansible.builtin.systemd:
-    name: docker-{{ docker_container_name }}
-    state: enabled
-
-- name: Ensure docker container serive started
-  ansible.builtin.systemd:
-    name: docker-{{ docker_container_name }}
-    state: started
+    name:    docker-{{ docker_container_name }}
+    enabled: true
+    state:   enabled
 
 ...
