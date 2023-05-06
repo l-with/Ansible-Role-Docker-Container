@@ -13,5 +13,6 @@ Install a docker container
 | basis | `docker_container_ports` | | the value for `--publish` |
 | basic | `docker_container_command` | | the `COMMAND` for `docker run`|
 | basic | `docker_container_restart_policy` | | the value for `--restart` |
+| basic | `docker_container_env` | `[]` | the values for `--env` |
 <!-- markdownlint-enable MD033 -->
 <!-- markdownlint-enable MD034 -->
