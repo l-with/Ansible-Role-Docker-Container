@@ -5,7 +5,7 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run --rm --restart {{ docker_container_restart_policy }} --publish {{ docker_container_ports }} --name {{ docker_container_name }} {{ docker_container_image }} {{ docker_container_command }}
+ExecStart=/usr/bin/docker run --rm --restart {{ docker_container_restart_policy }} {% if docker_container_ports | bool %}--publish {{ docker_container_ports }}{% endif %} --name {{ docker_container_name }} {{ docker_container_image }} {{ docker_container_command }}
 ExecStop=/usr/bin/docker stop {{ docker_container_name }}
 
 [Install]
