@@ -6,9 +6,7 @@
     dest: /etc/systemd/system/docker-{{ docker_container_name }}.service
     mode: a+rwx,u-x,g-wx,o-wx
   register: docker_container_service_file
-  notify: 
-    - reload systemd configuration
-    - restart docker container service
+  notify: restart docker container service
 
 - name: Reload systemd configuration
   ansible.builtin.systemd:
