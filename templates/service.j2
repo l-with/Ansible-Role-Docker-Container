@@ -7,7 +7,7 @@ After=docker.service
 Restart=always
 ExecStartPre=-/usr/bin/docker stop {{ docker_container_name }}
 ExecStartPre=-/usr/bin/docker rm {{ docker_container_name }}
-ExecStart=/usr/bin/docker run {{ docker_container_restart_policy }} {% for env in docker_container_env %}--env '{{ env }}' {% endfor %} {% if docker_container_ports | bool %}--publish {{ docker_container_ports }}{% endif %} --name {{ docker_container_name }} {{ docker_container_image }} {{ docker_container_command }}
+ExecStart=/usr/bin/docker run {{ docker_container_restart_policy }} {% for env in docker_container_env %}--env {{ env }} {% endfor %} {% if docker_container_ports | bool %}--publish {{ docker_container_ports }}{% endif %} --name {{ docker_container_name }} {{ docker_container_image }} {{ docker_container_command }}
 ExecStop=/usr/bin/docker stop {{ docker_container_name }}
 
 [Install]
