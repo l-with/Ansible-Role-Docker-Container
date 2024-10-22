@@ -17,5 +17,6 @@
     name:    docker-{{ docker_container_name }}
     enabled: true
     state:   started
+  ignore_errors: "{{ ansible_check_mode }}"
 
 ...
